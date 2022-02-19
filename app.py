@@ -24,16 +24,19 @@ def plot_altair(region, year):
 
 
 app.layout = html.Div([
+    html.H3('Gapminder data visualization: Income versus Life expectancy'),
+    html.P('Region'),
     dcc.Dropdown(
         id='region_dropdown',
         options=[{'label': i, 'value': i} for i in gapminder.region.unique()]),
+    html.P('Year'),
     dcc.Dropdown(
         id='year_dropdown',
         options=[{'label': i, 'value': i} for i in gapminder.year.unique()]),  
     html.Iframe(
         id='scatter',
         style={'border-width': '0', 'width': '100%', 'height': '400px'},
-        srcDoc=plot_altair(region = 'gapminder.region.unique()[0]', 
+        srcDoc=plot_altair(region = gapminder.region.unique()[0], 
         year = gapminder.year.unique()[0]))])
 
 

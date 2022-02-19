@@ -18,7 +18,8 @@ def plot_altair(region, year):
         x = 'life_expectancy',
         y = 'income',
         color='country',
-        size='population').properties(title = "Life expectancy vs income")
+        size='population',
+        tooltip=['country','population']).interactive().properties(title = "Life expectancy vs income")
     return chart.to_html()
 
 
